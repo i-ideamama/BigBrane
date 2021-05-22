@@ -6,7 +6,7 @@ from discord.ext.commands import Bot
 
 class StarterBot(Bot):
     def __init__(self):
-        super().__init__(command_prefix="!")
+        super().__init__(command_prefix=">")
 
         self.load_extensions()
 
