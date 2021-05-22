@@ -1,0 +1,11 @@
+---
+application:
+  name: "bigbrane"
+  project: "BigBrane"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-bigbrane"
+  routes:
+  - application_name: "bigbrane"
+    paths:
+    - "/*"
