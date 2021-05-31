@@ -23,9 +23,9 @@ class StarterBot(Bot):
     def get_extensions():
         extensions: List[str] = []
 
-        for filename in listdir("./app/cogs"):
+        for filename in listdir("./bot/cogs"):
             if filename.endswith("py") and filename != "__init__.py":
                 extension = filename[:-3]
-                extensions.append(f"app.cogs.{extension}")
+                extensions.append(f"bot.cogs.{extension}")
 
         return extensions

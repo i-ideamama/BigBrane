@@ -2,7 +2,7 @@ from os import getenv
 
 from dotenv import load_dotenv
 
-from app.bot import StarterBot
+from bot.bot import StarterBot
 
 load_dotenv()
 
