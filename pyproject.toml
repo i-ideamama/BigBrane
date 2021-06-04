@@ -8,6 +8,7 @@ authors = ["nandhagk <nandhagopi@gmail.com>"]
 python = "^3.9"
 "discord.py" = "^1.7.2"
 python-dotenv = "^0.17.1"
+asyncpraw = "^7.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

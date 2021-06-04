@@ -1,4 +1,12 @@
 [[package]]
+name = "aiofiles"
+version = "0.7.0"
+description = "File support for asyncio."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "aiohttp"
 version = "3.7.4.post0"
 description = "Async http client/server framework (asyncio)"
@@ -32,6 +40,44 @@ description = "Timeout context manager for asyncio programs"
 category = "main"
 optional = false
 python-versions = ">=3.5.3"
+
+[[package]]
+name = "asyncpraw"
+version = "7.2.0"
+description = "Async PRAW, an abbreviation for `Asynchronous Python Reddit API Wrapper`, is a python package that allows for simple access to reddit's API."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+aiofiles = "*"
+asyncprawcore = ">=2,<3"
+update-checker = ">=0.18"
+
+[package.extras]
+ci = ["coveralls"]
+dev = ["packaging", "pre-commit", "black", "docstrfmt", "flake8", "flynt", "isort", "pydocstyle", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-trio", "asynctest (>=0.13.0)", "mock (>=0.8)", "pytest (>=2.7.3)", "pytest-asyncio", "pytest-vcr", "testfixtures (>4.13.2,<7)", "vcrpy (==4.0.2)"]
+lint = ["black", "docstrfmt", "flake8", "flynt", "isort", "pydocstyle", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-trio"]
+readthedocs = ["sphinx", "sphinxcontrib-trio"]
+test = ["asynctest (>=0.13.0)", "mock (>=0.8)", "pytest (>=2.7.3)", "pytest-asyncio", "pytest-vcr", "testfixtures (>4.13.2,<7)", "vcrpy (==4.0.2)"]
+
+[[package]]
+name = "asyncprawcore"
+version = "2.0.1"
+description = "Low-level asynchronous communication layer for Async PRAW 7+."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+aiohttp = "*"
+yarl = "*"
+
+[package.extras]
+ci = ["coveralls"]
+dev = ["black", "flake8", "pre-commit", "pydocstyle", "flynt", "pytest-vcr", "vcrpy (==4.0.2)", "mock (>=0.8)", "pytest", "testfixtures (>4.13.2,<7)", "asynctest (>=0.13.0)"]
+lint = ["black", "flake8", "pre-commit", "pydocstyle", "flynt"]
+test = ["pytest-vcr", "vcrpy (==4.0.2)", "mock (>=0.8)", "pytest", "testfixtures (>4.13.2,<7)", "asynctest (>=0.13.0)"]
 
 [[package]]
 name = "atomicwrites"
@@ -238,6 +284,18 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "requests"
+version = "2.15.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+security = ["cryptography (>=1.3.4)", "idna (>=2.0.0)", "pyOpenSSL (>=0.14)"]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -252,6 +310,22 @@ description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "update-checker"
+version = "0.18.0"
+description = "A python module that will check for package updates."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests = ">=2.3.0"
+
+[package.extras]
+dev = ["black", "flake8", "pytest (>=2.7.3)"]
+lint = ["black", "flake8"]
+test = ["pytest (>=2.7.3)"]
 
 [[package]]
 name = "wcwidth"
@@ -276,9 +350,13 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a4c06f8d1ebacb65565378c9dcb760f7cd645433a45d3e33ce2179980527ccee"
+content-hash = "d1b095358e01d610e7c4907877e73f5be79f6ed970177e27c8ad5dcfdcb4e649"
 
 [metadata.files]
+aiofiles = [
+    {file = "aiofiles-0.7.0-py3-none-any.whl", hash = "sha256:c67a6823b5f23fcab0a2595a289cec7d8c863ffcb4322fb8cd6b90400aedfdbc"},
+    {file = "aiofiles-0.7.0.tar.gz", hash = "sha256:a1c4fc9b2ff81568c83e21392a82f344ea9d23da906e4f6a52662764545e19d4"},
+]
 aiohttp = [
     {file = "aiohttp-3.7.4.post0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:3cf75f7cdc2397ed4442594b935a11ed5569961333d49b7539ea741be2cc79d5"},
     {file = "aiohttp-3.7.4.post0-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:4b302b45040890cea949ad092479e01ba25911a15e648429c7c5aae9650c67a8"},
@@ -325,6 +403,14 @@ appdirs = [
 async-timeout = [
     {file = "async-timeout-3.0.1.tar.gz", hash = "sha256:0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"},
     {file = "async_timeout-3.0.1-py3-none-any.whl", hash = "sha256:4291ca197d287d274d0b6cb5d6f8f8f82d434ed288f962539ff18cc9012f9ea3"},
+]
+asyncpraw = [
+    {file = "asyncpraw-7.2.0-py3-none-any.whl", hash = "sha256:817a4881ce84bda17a207f93156419825c7934b227244a8f05bdfcf557134181"},
+    {file = "asyncpraw-7.2.0.tar.gz", hash = "sha256:7890414f0c5f8f3747dfe8a4a1ca3348064ef124f17b744cf0d12f8e202d38cd"},
+]
+asyncprawcore = [
+    {file = "asyncprawcore-2.0.1-py3-none-any.whl", hash = "sha256:d800228a8009644d42d01d1adf16379f41f661a6344dc1fe07060a3abe4354e5"},
+    {file = "asyncprawcore-2.0.1.tar.gz", hash = "sha256:79ac9b4518888d877e19e88d8685dea619f7ae59a41bde19724fcf529d24870e"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
@@ -476,6 +562,10 @@ regex = [
     {file = "regex-2021.4.4-cp39-cp39-win_amd64.whl", hash = "sha256:97f29f57d5b84e73fbaf99ab3e26134e6687348e95ef6b48cfd2c06807005a07"},
     {file = "regex-2021.4.4.tar.gz", hash = "sha256:52ba3d3f9b942c49d7e4bc105bb28551c44065f139a65062ab7912bef10c9afb"},
 ]
+requests = [
+    {file = "requests-2.15.1-py2.py3-none-any.whl", hash = "sha256:ff753b2196cd18b1bbeddc9dcd5c864056599f7a7d9a4fb5677e723efa2b7fb9"},
+    {file = "requests-2.15.1.tar.gz", hash = "sha256:e5659b9315a0610505e050bb7190bf6fa2ccee1ac295f2b760ef9d8a03ebbb2e"},
+]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
@@ -484,6 +574,10 @@ typing-extensions = [
     {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},
     {file = "typing_extensions-3.10.0.0-py3-none-any.whl", hash = "sha256:779383f6086d90c99ae41cf0ff39aac8a7937a9283ce0a414e5dd782f4c94a84"},
     {file = "typing_extensions-3.10.0.0.tar.gz", hash = "sha256:50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"},
+]
+update-checker = [
+    {file = "update_checker-0.18.0-py3-none-any.whl", hash = "sha256:cbba64760a36fe2640d80d85306e8fe82b6816659190993b7bdabadee4d4bbfd"},
+    {file = "update_checker-0.18.0.tar.gz", hash = "sha256:6a2d45bb4ac585884a6b03f9eade9161cedd9e8111545141e9aa9058932acb13"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},

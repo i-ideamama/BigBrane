@@ -16,9 +16,9 @@ class StarterBot(Bot):
         for extension in extensions:
             try:
                 self.load_extension(extension)
-            except Exception:
+            except Exception as e:
                 print(f"Unable to load extension: {extension}")
-
+                print(e)
     @staticmethod
     def get_extensions():
         extensions: List[str] = []
