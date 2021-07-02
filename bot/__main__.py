@@ -1,4 +1,4 @@
-from loggin import basicConfig, INFO
+from logging import basicConfig, INFO
 from os import getenv
 
 from dotenv import load_dotenv
