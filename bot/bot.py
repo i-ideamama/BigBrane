@@ -9,9 +9,6 @@ class StarterBot(Bot):
         super().__init__(command_prefix="!")
 
         self.load_extensions()
-    
-    async def on_ready(self):
-        print("READY!!")
 
     def load_extensions(self):
         extensions = self.get_extensions()
