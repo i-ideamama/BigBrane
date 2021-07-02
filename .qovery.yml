@@ -2,10 +2,3 @@
 application:
   name: "starter-bot"
   project: "starter-bot"
-  organization: "QoveryCommunity"
-routers:
-- name: "main-starter-bot"
-  routes:
-  - application_name: "starter-bot"
-    paths:
-    - "/*"
