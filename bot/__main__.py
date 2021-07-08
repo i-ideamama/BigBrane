@@ -1,13 +1,12 @@
+from logging import basicConfig, INFO
 from os import getenv
 
 from dotenv import load_dotenv
 
-from app.bot import StarterBot
+from bot.bot import StarterBot
 
-import logging
 
-logging.basicConfig(level=logging.INFO)
-
+basicConfig(level=INFO)
 load_dotenv()
 
 bot = StarterBot()

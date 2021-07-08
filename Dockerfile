@@ -1,18 +1,22 @@
-FROM python:3.9
+FROM python:3.9-slim
 
-# Install Poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
-  cd /usr/local/bin && \
-  ln -s /opt/poetry/bin/poetry && \
-  poetry config virtualenvs.create false
+# Set pip to have cleaner logs and no saved cache
+ENV PIP_NO_CACHE_DIR=false \
+  PIP_DISABLE_PIP_VERSION_CHECK=on \
+  POETRY_VIRTUALENVS_CREATE=false
+
+# Install Poetry and add it to the path
+RUN pip install --no-warn-script-location --user poetry
+ENV PATH="${PATH}:/root/.local/bin"
 
 WORKDIR /app
 
 # Copy using poetry.lock* in case it doesn't exist yet
 COPY ./pyproject.toml ./poetry.lock* /app/
 
-RUN poetry install --no-root --no-dev
+# Install dependencies and lockfile, excluding development dependencies,
+RUN poetry install --no-dev --no-interaction --no-ansi
 
-COPY ./app /app/app
+COPY ./bot /app/bot
 
-CMD [ "python", "-m", "app.main" ]
+CMD [ "python", "-m", "bot" ]

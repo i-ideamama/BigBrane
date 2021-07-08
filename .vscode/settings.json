@@ -1,3 +1,11 @@
 {
+<<<<<<< HEAD
   "python.pythonPath": "C:\\Users\\advai\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\starter-bot-yK8cfYJb-py3.9\\Scripts\\python.exe"
+=======
+  "python.pythonPath": "/home/nandhagk/.cache/pypoetry/virtualenvs/starter-bot--MiNumh6-py3.9/bin/python",
+  "cSpell.words": [
+    "dotenv",
+    "getenv"
+  ]
+>>>>>>> 2c31a84f2a39054d075a9467da98eae7b79c9d6d
 }
